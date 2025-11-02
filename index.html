@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dancecolor Test</title>
+    <link rel="preload" href="/assets/fonts/InterTight-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/InterTight-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Roboto-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+        (function setVh() {
+            function updateVh() { document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px'); }
+            updateVh();
+            window.addEventListener('resize', updateVh);
+            try {
+                if (!CSS || !CSS.supports || !CSS.supports('height', '100dvh')) {
+                    document.querySelectorAll('.menuInner').forEach(el => el.classList.add('fallback-vh'));
+                }
+            } catch (e) { }
+        })();
+    </script>
+    <script>
+        (function prewarmLayers() {
+            function applyOnce() {
+                try {
+                    const els = document.querySelectorAll('.burger .line, .backgroundBlur img, .menuInner, .servicesArrow, .fullscreenMenu');
+                    els.forEach(el => { el.style.willChange = 'transform, opacity'; el.style.backfaceVisibility = 'hidden'; });
+                    setTimeout(() => els.forEach(el => { el.style.willChange = ''; }), 1000);
+                } catch (e) { }
+            }
+            if (document.readyState === 'complete') applyOnce(); else window.addEventListener('load', applyOnce);
+        })();
+    </script>
+
+</body>
+
+</html>

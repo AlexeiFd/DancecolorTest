@@ -1,0 +1,56 @@
+html,
+body {
+  min-height: 100%;
+  height: auto;
+  font-size: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fullscreenMenu .menuInner,
+.menuInner,
+.modal .inner,
+.overlay .inner {
+  max-height: calc(100dvh - var(--header-height, 0px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fullscreenMenu .menuInner.fallback-vh,
+.menuInner.fallback-vh {
+  max-height: calc((var(--vh, 1vh) * 100) - var(--header-height, 0px));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.fullscreenMenu,
+.modal,
+.overlay {
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.fullscreenMenu.open,
+.modal.open,
+.overlay.open {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.backgroundBlur img,
+.burger .line,
+.menuInner,
+.fullscreenMenu,
+.servicesArrow {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.backgroundBlur img {
+  transform: translateZ(0);
+}
+
