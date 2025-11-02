@@ -8,6 +8,29 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+:root {
+  --bg: #222222;
+  --white: #fff;
+  --accent: #4b2bff;
+}
+
+:global {
+  * {
+      box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+      height: 100%;
+  }
+
+  body {
+      margin: 0;
+      background: var(--bg);
+  }
+}
+
 .fullscreenMenu .menuInner,
 .menuInner,
 .modal .inner,
@@ -56,3 +79,26 @@ body {
   transform: translateZ(0);
 }
 
+:root {
+  --hover-transform: translateY(-2px);
+  --hover-opacity: 0.98;
+}
+
+.serviceBtn,
+.navItem,
+.nestedBtn,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform .18s cubic-bezier(.2,.9,.3,1), color .18s ease, opacity .18s ease, box-shadow .18s ease;
+}
+
+.serviceBtn:hover,
+.navItem:hover,
+.nestedBtn:hover,
+button:hover,
+a:hover {
+  transform: var(--hover-transform);
+  opacity: var(--hover-opacity);
+}
