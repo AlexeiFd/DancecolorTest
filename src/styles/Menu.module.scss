@@ -472,6 +472,7 @@ $bp-nested-hide: 48.0625rem;
 
     .leftCol {
         width: 100%;
+        box-sizing: border-box;
         padding: 1.25rem;
         order: 1;
     }
