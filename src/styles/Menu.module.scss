@@ -98,6 +98,11 @@ $bp-nested-hide: 48.0625rem;
     @include trans-default;
 }
 
+.fullscreenMenu.hideScrollbar .menuInner {
+    scrollbar-width: none;
+    -ms-overflow-style: none
+}
+
 .leftCol {
     padding: 5.0625rem 3.75rem 2.5rem 4rem;
     display: flex;
